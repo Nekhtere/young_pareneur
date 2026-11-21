@@ -1,6 +1,6 @@
 -- =====================================================================
 -- SETUP DARI NOL — Project Supabase baru
--- Project: https://civmaituvwjywwpceqai.supabase.co
+-- Project: https://sfnguqjpjcwdlpydelhk.supabase.co
 -- Acara Puncak Business Growth & Digital Readiness Forum Batam 2026
 -- 27 November 2026 · 14.00-17.00 WIB · Hotel Golden View Batam
 -- Kuota: 80 peserta, satu sesi, status awal menunggu.
@@ -13,7 +13,7 @@
 --      Site URL      = https://< url vercel kamu >
 --      Redirect URLs = https://< url vercel kamu >/**
 -- 5. Di Google Cloud Console -> OAuth client, tambahkan Authorized redirect URI:
---      https://civmaituvwjywwpceqai.supabase.co/auth/v1/callback
+--      https://sfnguqjpjcwdlpydelhk.supabase.co/auth/v1/callback
 -- =====================================================================
 
 -- ---------- 1. TABEL PENDAFTAR ----------
@@ -117,7 +117,7 @@ begin
   end if;
 
   select count(*) into v_count from public.registrations where kode like 'BGAP-%';
-  if v_count >= 80 then
+  if v_count >= 24 then
     raise exception 'KUOTA_PENUH';
   end if;
 
@@ -152,10 +152,10 @@ stable
 security definer
 set search_path = public
 as $$
-  select 80,
+  select 24,
          count(*)::int,
          case when coalesce((select nilai from public.event_settings where kunci = 'pendaftaran_dibuka'), true)
-              then greatest(80 - count(*)::int, 0) else 0 end,
+              then greatest(24 - count(*)::int, 0) else 0 end,
          coalesce((select nilai from public.event_settings where kunci = 'pendaftaran_dibuka'), true)
   from public.registrations
   where kode like 'BGAP-%';

@@ -11,7 +11,7 @@ Gratis, dikirim dari **Gmail panitia utama** (akun yang men-deploy script). Tida
    | Property | Nilai |
    |---|---|
    | `SCRIPT_SECRET` | string acak rahasia, mis. `puncak2026-<acak>` |
-   | `SUPABASE_URL` | `https://civmaituvwjywwpceqai.supabase.co` |
+   | `SUPABASE_URL` | `https://sfnguqjpjcwdlpydelhk.supabase.co` |
    | `SUPABASE_SERVICE_KEY` | service_role key dari Supabase → Project Settings → API (rahasia, jangan dipakai di browser) |
 
 4. **Deploy** → **New deployment** → pilih **Web app**:
