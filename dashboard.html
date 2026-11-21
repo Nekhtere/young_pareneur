@@ -22,19 +22,21 @@ h1,h2,h3,p{margin:0}
 .eb{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--y)}
 .top h1{font-size:clamp(1.4rem,5vw,1.8rem);font-weight:800;line-height:1.15;margin-top:2px}
 #who{margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.7);overflow-wrap:anywhere}
-.acts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.btn{font:700 .9rem "Plus Jakarta Sans",system-ui,sans-serif;min-height:46px;padding:8px 12px;border-radius:12px;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.2}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{font:700 .9rem "Plus Jakarta Sans",system-ui,sans-serif;min-height:46px;padding:8px 12px;border-radius:12px;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;text-decoration:none}
 .btn:disabled{opacity:.55;cursor:default}
 .pri{background:var(--y);color:var(--ink)}
 .ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .top .ghost{color:#fff;border-color:rgba(255,255,255,.4)}
 .dng{background:var(--err);color:#fff}
+.ok{background:var(--g);color:#fff}
+.no{background:transparent;color:var(--err);border-color:var(--err)}
 .shell{padding:16px 16px 80px}
 .quota{background:var(--navy);color:#fff;border-radius:20px;padding:18px 20px}
 .quota span{display:block;font-size:.88rem;font-weight:600;color:rgba(255,255,255,.75)}
 .qn{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .qn b{font-size:2.8rem;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}.qn small{font-size:1rem;color:rgba(255,255,255,.75)}
-.meter{height:10px;border-radius:99px;background:rgba(255,255,255,.18);margin-top:12px;overflow:hidden}.meter i{display:block;height:100%;width:0;background:var(--y);transition:width .4s}.meter.full i{background:#FF8AA6}
+.meter{height:10px;border-radius:99px;background:rgba(255,255,255,.18);margin-top:12px;overflow:hidden}.meter i{display:block;height:100%;width:0;background:var(--y);transition:width .4s}
 .counts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .st{background:var(--s);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
 .st b{display:block;font-size:1.6rem;font-weight:800;line-height:1.15}.st span{font-size:.84rem;font-weight:600;color:var(--mut)}
@@ -50,23 +52,30 @@ h1,h2,h3,p{margin:0}
 .chip[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}.chip i{font-style:normal;opacity:.7}
 #cnt{font-size:.84rem;color:var(--mut)}
 .list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
-@media (min-width:760px){.list{grid-template-columns:1fr 1fr}.counts{grid-template-columns:repeat(4,1fr)}.acts{grid-template-columns:repeat(3,auto);justify-content:start}.in{grid-template-columns:1fr auto;align-items:end}}
-.reg{background:var(--s);border:1px solid var(--line);border-radius:18px;padding:14px 16px 12px 20px;box-shadow:inset 5px 0 0 var(--c,var(--g));display:grid;gap:8px}
-.reg[data-i=baru]{--c:var(--y)}
+@media (min-width:760px){.list{grid-template-columns:1fr 1fr}.counts{grid-template-columns:repeat(3,1fr)}.acts{grid-template-columns:repeat(4,auto);justify-content:start}.in{grid-template-columns:1fr auto;align-items:end}}
+.reg{background:var(--s);border:1px solid var(--line);border-radius:18px;padding:14px 16px 12px 20px;box-shadow:inset 5px 0 0 var(--c,var(--y));display:grid;gap:8px;align-content:start}
+.reg[data-v=disetujui]{--c:var(--g)}.reg[data-v=ditolak]{--c:var(--err)}
 .r1{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .reg h3{font-size:1.05rem;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
 .kode{flex:none;font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--navy);color:var(--y);letter-spacing:.04em}
 .reg p{font-size:.88rem;color:var(--mut);overflow-wrap:anywhere}
 .tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--gbg);color:var(--g)}.tags span.b{background:#FFF1C9;color:#6B4E00}
+.tags span.v-menunggu{background:#FFF1C9;color:#6B4E00}.tags span.v-disetujui{background:var(--g);color:#fff}.tags span.v-ditolak{background:var(--ebg);color:var(--err)}.tags span.n{background:var(--navy);color:var(--y)}
 .wa{color:var(--ink);font-weight:800;text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:2px;text-underline-offset:3px;padding:4px 0;display:inline-block}
+.r4{display:flex;flex-wrap:wrap;gap:8px}.r4 .btn{min-height:42px;padding:6px 14px;flex:1 1 auto}
 .r3{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:8px}
 .r3 small{font-size:.8rem;color:var(--mut)}
 .del{background:transparent;color:var(--err);min-height:40px;padding:6px 12px}
 .empty{background:var(--s);border:2px dashed var(--line);border-radius:18px;padding:36px 16px;text-align:center;color:var(--mut)}
-dialog{border:0;border-radius:22px;padding:0;width:min(420px,calc(100vw - 32px));background:var(--s);color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+dialog{border:0;border-radius:22px;padding:0;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;background:var(--s);color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.35)}
 dialog::backdrop{background:rgba(16,33,63,.6)}
 .dg{padding:22px 20px}.dg h2{font-size:1.2rem;font-weight:800}.dg p{margin-top:8px;color:var(--mut)}
 .dgb{display:flex;gap:10px;margin-top:20px}.dgb .btn{flex:1}
+.fl{display:block;font-weight:700;font-size:.85rem;margin:14px 0 4px}
+.dg input,.dg textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--s);border:2px solid var(--line);border-radius:12px;padding:10px 12px}
+.dg input:focus-visible,.dg textarea:focus-visible{outline:none;border-color:var(--ink)}
+.dg textarea{resize:vertical;line-height:1.45}
+.dg .hint{font-size:.78rem;margin-top:6px}
 #toast{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;max-width:420px;margin:0 auto;padding:12px 16px;border-radius:14px;background:var(--navy);color:#fff;font-weight:700;font-size:.92rem;text-align:center}
 #toast.err{background:var(--err)}
 </style>
@@ -76,18 +85,21 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
   <div><p class="eb">Dashboard Admin</p><h1>Youngpreneur Kepri 2026</h1><p id="who">Memuat...</p></div>
   <div class="acts">
     <button class="btn ghost" id="refresh" type="button">Muat ulang</button>
+    <button class="btn ghost" id="cfgBtn" type="button">Lokasi &amp; template WA</button>
     <button class="btn pri" id="csv" type="button">Unduh CSV</button>
     <button class="btn ghost" id="out" type="button">Keluar</button>
   </div>
 </div></header>
 
 <main class="shell">
-  <section class="quota" aria-label="Kuota">
-    <span>Peserta terdaftar</span>
-    <div class="qn"><b id="qT">0</b><small>dari <span id="qK" style="display:inline;color:inherit;font-weight:700">24</span> slot · sisa <span id="qS" style="display:inline;color:inherit;font-weight:700">24</span></small></div>
-    <div class="meter" id="meter"><i id="meterI"></i></div>
+  <section class="quota" aria-label="Verifikasi">
+    <span>Menunggu verifikasi</span>
+    <div class="qn"><b id="qW">0</b><small>dari <span id="qT" style="display:inline;color:inherit;font-weight:700">0</span> pendaftar</small></div>
+    <div class="meter"><i id="meterI"></i></div>
   </section>
   <section class="counts" aria-label="Ringkasan">
+    <div class="st"><b id="cOk">0</b><span>Disetujui</span></div>
+    <div class="st"><b id="cNo">0</b><span>Ditolak</span></div>
     <div class="st"><b id="cMhs">0</b><span>Mahasiswa</span></div>
     <div class="st"><b id="cSmk">0</b><span>Siswa/i SMK</span></div>
     <div class="st"><b id="cPunya">0</b><span>Sudah punya usaha</span></div>
@@ -107,6 +119,31 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
 </main>
 
 <dialog id="dlg"><div class="dg"><h2 id="dT"></h2><p id="dB"></p><div class="dgb"><button class="btn ghost" id="dNo" type="button">Batal</button><button class="btn dng" id="dYes" type="button">Ya</button></div></div></dialog>
+
+<dialog id="dWa"><div class="dg">
+  <h2 id="wT">Pesan WhatsApp</h2>
+  <p id="wP"></p>
+  <label class="fl" for="wMsg">Isi pesan</label>
+  <textarea id="wMsg" rows="11" readonly></textarea>
+  <div class="dgb" style="flex-wrap:wrap">
+    <button class="btn ghost" id="wCopy" type="button">Salin pesan</button>
+    <a class="btn ok" id="wOpen" href="#" target="_blank" rel="noopener">Buka WhatsApp</a>
+  </div>
+  <div class="dgb" style="margin-top:10px"><button class="btn ghost" id="wClose" type="button">Tutup</button></div>
+</div></dialog>
+
+<dialog id="dCfg"><div class="dg">
+  <h2>Lokasi, grup &amp; template WA</h2>
+  <p>Dikirim ke peserta yang sudah disetujui.</p>
+  <label class="fl" for="cNama">Nama lokasi</label><input id="cNama" type="text" maxlength="200">
+  <label class="fl" for="cAlamat">Alamat</label><input id="cAlamat" type="text" maxlength="500">
+  <label class="fl" for="cGps">Link GPS (Google Maps)</label><input id="cGps" type="url" maxlength="500" inputmode="url">
+  <label class="fl" for="cGrup">Link grup WhatsApp</label><input id="cGrup" type="url" maxlength="500" inputmode="url">
+  <label class="fl" for="cTpl">Template pesan</label><textarea id="cTpl" rows="10" maxlength="3000"></textarea>
+  <p class="hint">Isi otomatis: {nama} {kode} {lokasi} {alamat} {gps} {grup}</p>
+  <div class="dgb"><button class="btn ghost" id="cNo2" type="button">Batal</button><button class="btn ok" id="cSave" type="button">Simpan</button></div>
+</div></dialog>
+
 <div id="toast" role="status" hidden></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
@@ -116,8 +153,9 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
   var SUPABASE_ANON_KEY="sb_publishable_5UoKt_tZaG1OnxJlgDPwsQ_-_l8U-O5";
   var sb=null;try{sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)}catch(e){}
   var $=function(i){return document.getElementById(i)};
-  var rows=[],kuota=24,dibuka=null,filt="all",term="";
-  var FILTERS=[["all","Semua"],["Mahasiswa","Mahasiswa"],["Siswa/i SMK","SMK"],["Sudah punya usaha","Punya usaha"],["Belum punya usaha, tapi tertarik","Tertarik"]];
+  var rows=[],cfg=null,dibuka=null,filt="all",term="";
+  var FILTERS=[["all","Semua"],["menunggu","Menunggu"],["disetujui","Disetujui"],["ditolak","Ditolak"],["Mahasiswa","Mahasiswa"],["Siswa/i SMK","SMK"],["Sudah punya usaha","Punya usaha"],["Belum punya usaha, tapi tertarik","Tertarik"]];
+  var LABEL={menunggu:"Menunggu",disetujui:"Disetujui",ditolak:"Ditolak"};
 
   function h(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
   var tt;function toast(m,err){var t=$("toast");t.textContent=m;t.className=err?"err":"";t.hidden=false;clearTimeout(tt);tt=setTimeout(function(){t.hidden=true},3500)}
@@ -129,25 +167,31 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
   }
   function wib(s){return new Date(s).toLocaleString("id-ID",{timeZone:"Asia/Jakarta",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})+" WIB"}
   function isBaru(r){return Date.now()-new Date(r.created_at).getTime()<36e5}
-  function match(r,f){return f==="all"||r.status===f||r.ide===f}
+  function vs(r){return r.verifikasi||"menunggu"}
+  function match(r,f){return f==="all"||vs(r)===f||r.status===f||r.ide===f}
+  function cnt(fn){return rows.filter(fn).length}
 
   function stats(){
-    var n=rows.length,sisa=Math.max(kuota-n,0);
-    $("qT").textContent=n;$("qK").textContent=kuota;$("qS").textContent=sisa;
-    $("meterI").style.width=Math.min(100,kuota?n/kuota*100:0)+"%";$("meter").classList.toggle("full",n>=kuota);
-    $("cMhs").textContent=rows.filter(function(r){return r.status==="Mahasiswa"}).length;
-    $("cSmk").textContent=rows.filter(function(r){return r.status==="Siswa/i SMK"}).length;
-    $("cPunya").textContent=rows.filter(function(r){return r.ide==="Sudah punya usaha"}).length;
-    $("cTertarik").textContent=rows.filter(function(r){return r.ide!=="Sudah punya usaha"}).length;
+    var n=rows.length,w=cnt(function(r){return vs(r)==="menunggu"});
+    $("qW").textContent=w;$("qT").textContent=n;
+    $("meterI").style.width=(n?(n-w)/n*100:0)+"%";
+    $("cOk").textContent=cnt(function(r){return vs(r)==="disetujui"});
+    $("cNo").textContent=cnt(function(r){return vs(r)==="ditolak"});
+    $("cMhs").textContent=cnt(function(r){return r.status==="Mahasiswa"});
+    $("cSmk").textContent=cnt(function(r){return r.status==="Siswa/i SMK"});
+    $("cPunya").textContent=cnt(function(r){return r.ide==="Sudah punya usaha"});
+    $("cTertarik").textContent=cnt(function(r){return r.ide!=="Sudah punya usaha"});
   }
   function chips(){
     var box=$("chips");box.textContent="";
     FILTERS.forEach(function(f){
       var b=h("button","chip",f[1]);b.type="button";b.setAttribute("aria-pressed",filt===f[0]);
-      b.appendChild(h("i",null,rows.filter(function(r){return match(r,f[0])}).length));
+      b.appendChild(h("i",null,cnt(function(r){return match(r,f[0])})));
       b.onclick=function(){filt=f[0];chips();draw()};box.appendChild(b);
     });
   }
+  function btn(cls,txt,fn){var b=h("button","btn "+cls,txt);b.type="button";b.onclick=fn;return b}
+
   function draw(){
     var L=$("list");L.textContent="";
     var t=term.toLowerCase().trim();
@@ -155,21 +199,50 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
       return match(r,filt)&&(!t||[r.nama,r.institusi,r.jurusan,r.kode,r.wa].join(" ").toLowerCase().indexOf(t)>-1);
     });
     $("cnt").textContent=v.length+" dari "+rows.length+" peserta";
-    if(!v.length){var e=h("li","empty",rows.length?"Tidak ada peserta yang cocok.":"Belum ada pendaftar.");L.appendChild(e);return}
+    if(!v.length){L.appendChild(h("li","empty",rows.length?"Tidak ada peserta yang cocok.":"Belum ada pendaftar."));return}
     v.forEach(function(r){
-      var li=h("li","reg");if(isBaru(r))li.dataset.i="baru";
+      var s=vs(r),li=h("li","reg");li.dataset.v=s;
       var a=h("div","r1");a.appendChild(h("h3",null,r.nama));a.appendChild(h("span","kode",r.kode));li.appendChild(a);
-      var tg=h("div","tags");tg.appendChild(h("span",null,r.status));tg.appendChild(h("span","b",r.ide));li.appendChild(tg);
+      var tg=h("div","tags");
+      tg.appendChild(h("span","v-"+s,LABEL[s]));
+      if(isBaru(r))tg.appendChild(h("span","n","Baru"));
+      tg.appendChild(h("span",null,r.status));tg.appendChild(h("span","b",r.ide));li.appendChild(tg);
       li.appendChild(h("p",null,r.institusi+" · "+r.jurusan+" · "+r.tingkat));
       var w=h("a","wa","+"+r.wa);w.href="https://wa.me/"+r.wa;w.target="_blank";w.rel="noopener";
       var p=h("p");p.appendChild(w);li.appendChild(p);
+      var ac=h("div","r4");
+      if(s==="menunggu"){
+        ac.appendChild(btn("ok","Setujui",function(){setVerif(r,"disetujui")}));
+        ac.appendChild(btn("no","Tolak",function(){tolak(r)}));
+      }else if(s==="disetujui"){
+        ac.appendChild(btn("ok","Kirim WA",function(){kirimWA(r)}));
+        ac.appendChild(btn("ghost","Kembalikan",function(){setVerif(r,"menunggu")}));
+      }else{
+        ac.appendChild(btn("ok","Setujui",function(){setVerif(r,"disetujui")}));
+        ac.appendChild(btn("ghost","Kembalikan",function(){setVerif(r,"menunggu")}));
+      }
+      li.appendChild(ac);
+      if(s==="disetujui"&&r.wa_terkirim_at)li.appendChild(h("p",null,"Pesan WA disiapkan "+wib(r.wa_terkirim_at)));
       var f=h("div","r3");f.appendChild(h("small",null,"Daftar "+wib(r.created_at)));
       var d=h("button","btn del","Hapus");d.type="button";d.onclick=function(){hapus(r)};f.appendChild(d);li.appendChild(f);
       L.appendChild(li);
     });
   }
+
+  function setVerif(r,s){
+    sb.rpc("set_verifikasi_youngpreneur",{p_id:r.id,p_status:s}).then(function(res){
+      if(res.error){toast("Gagal: "+res.error.message,1);return}
+      r.verifikasi=s;
+      r.diverifikasi_at=s==="menunggu"?null:new Date().toISOString();
+      stats();chips();draw();
+      toast(r.nama+": "+LABEL[s].toLowerCase());
+    });
+  }
+  function tolak(r){
+    confirmBox({title:"Tolak pendaftar?",body:r.nama+" ("+r.kode+") akan ditandai ditolak. Bisa dikembalikan ke menunggu.",yes:"Tolak",onYes:function(){setVerif(r,"ditolak")}});
+  }
   function hapus(r){
-    confirmBox({title:"Hapus pendaftar?",body:r.nama+" ("+r.kode+") akan dihapus permanen dan slotnya kembali kosong.",yes:"Hapus",onYes:function(){
+    confirmBox({title:"Hapus pendaftar?",body:r.nama+" ("+r.kode+") akan dihapus permanen.",yes:"Hapus",onYes:function(){
       sb.from("youngpreneur_peserta").delete().eq("id",r.id).select("id").then(function(res){
         if(res.error){toast("Gagal menghapus: "+res.error.message,1);return}
         if(!res.data||!res.data.length){toast("Tidak ada izin menghapus (cek policy RLS).",1);return}
@@ -177,14 +250,62 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
       });
     }});
   }
-  function status(){
-    return sb.rpc("kuota_youngpreneur").then(function(r){
+
+  /* ---------- Pesan WhatsApp ---------- */
+  function kirimWA(r){
+    if(!cfg||!cfg.lokasi_gps||!cfg.link_grup||!cfg.lokasi_nama){
+      toast("Isi dulu lokasi, link GPS, dan link grup.",1);bukaCfg();return;
+    }
+    sb.rpc("pesan_wa_youngpreneur",{p_id:r.id}).then(function(res){
+      var d=res.data&&res.data[0];
+      if(res.error||!d){
+        var m=res.error?res.error.message:"";
+        toast(/BELUM_DISETUJUI/.test(m)?"Peserta belum disetujui.":"Gagal menyiapkan pesan"+(m?": "+m:""),1);return;
+      }
+      r.wa_terkirim_at=new Date().toISOString();draw();
+      $("wT").textContent="Kirim ke "+r.nama;
+      $("wP").textContent="+"+d.wa;
+      $("wMsg").value=d.pesan;
+      $("wOpen").href="https://wa.me/"+d.wa+"?text="+encodeURIComponent(d.pesan);
+      $("dWa").showModal();
+    });
+  }
+  $("wClose").onclick=function(){$("dWa").close()};
+  $("wCopy").onclick=function(){
+    var ta=$("wMsg");
+    function ok(){toast("Pesan disalin")}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand("copy");ok()})}
+    else{ta.select();document.execCommand("copy");ok()}
+  };
+
+  /* ---------- Konfigurasi ---------- */
+  function bukaCfg(){
+    if(!cfg){toast("Konfigurasi belum termuat. Muat ulang halaman.",1);return}
+    $("cNama").value=cfg.lokasi_nama||"";$("cAlamat").value=cfg.lokasi_alamat||"";
+    $("cGps").value=cfg.lokasi_gps||"";$("cGrup").value=cfg.link_grup||"";$("cTpl").value=cfg.template_wa||"";
+    var d=$("dCfg");if(!d.open)d.showModal();
+  }
+  $("cfgBtn").onclick=bukaCfg;
+  $("cNo2").onclick=function(){$("dCfg").close()};
+  $("cSave").onclick=function(){
+    var v={lokasi_nama:$("cNama").value.trim(),lokasi_alamat:$("cAlamat").value.trim(),lokasi_gps:$("cGps").value.trim(),link_grup:$("cGrup").value.trim(),template_wa:$("cTpl").value};
+    var b=$("cSave");b.disabled=true;
+    sb.rpc("set_config_youngpreneur",{p_lokasi_nama:v.lokasi_nama,p_lokasi_alamat:v.lokasi_alamat,p_lokasi_gps:v.lokasi_gps,p_link_grup:v.link_grup,p_template_wa:v.template_wa}).then(function(r){
+      b.disabled=false;
+      if(r.error){toast("Gagal menyimpan: "+r.error.message,1);return}
+      for(var k in v)cfg[k]=v[k];
+      $("dCfg").close();toast("Pengaturan disimpan");
+    });
+  };
+
+  function loadCfg(){
+    return sb.rpc("get_config_youngpreneur").then(function(r){
       var d=r.data&&r.data[0],b=$("toggle");
       if(r.error||!d){b.textContent="Tidak tersedia";$("rsT").textContent="Status pendaftaran tidak diketahui";$("rsP").textContent=r.error?r.error.message:"";return}
-      dibuka=!!d.dibuka;kuota=d.kuota;stats();
+      cfg=d;dibuka=!!d.dibuka;
       $("rs").dataset.s=dibuka?"open":"closed";b.disabled=false;
       $("rsT").textContent=dibuka?"Pendaftaran dibuka":"Pendaftaran ditutup";
-      $("rsP").textContent=dibuka?"Form menerima pendaftar sampai slot penuh.":"Form tidak menerima pendaftar baru.";
+      $("rsP").textContent=dibuka?"Form menerima pendaftar. Semua masuk antrean verifikasi.":"Form tidak menerima pendaftar baru.";
       b.textContent=dibuka?"Tutup":"Buka";
     });
   }
@@ -193,7 +314,7 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
       $("toggle").disabled=true;
       sb.rpc("set_pendaftaran_youngpreneur",{p_buka:!dibuka}).then(function(r){
         if(r.error){$("toggle").disabled=false;toast("Gagal: "+r.error.message,1);return}
-        status().then(function(){toast(dibuka?"Pendaftaran dibuka":"Pendaftaran ditutup")});
+        loadCfg().then(function(){toast(dibuka?"Pendaftaran dibuka":"Pendaftaran ditutup")});
       });
     }});
   };
@@ -202,17 +323,17 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
     return sb.from("youngpreneur_peserta").select("*").order("created_at",{ascending:false}).then(function(r){
       $("refresh").disabled=false;
       if(r.error){toast("Gagal memuat data: "+r.error.message,1);return}
-      rows=r.data||[];stats();chips();draw();return status();
+      rows=r.data||[];stats();chips();draw();return loadCfg();
     });
   }
   function csvCell(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}
   $("csv").onclick=function(){
     if(!rows.length){toast("Belum ada data untuk diunduh",1);return}
-    var head=["No","Kode","Nama","Status","WhatsApp","Kampus/Sekolah","Jurusan","Kelas/Semester","Minat Usaha","Waktu Daftar (WIB)"];
+    var head=["No","Kode","Nama","Status","WhatsApp","Kampus/Sekolah","Jurusan","Kelas/Semester","Minat Usaha","Verifikasi","Waktu Daftar (WIB)"];
     var asc=rows.slice().reverse();
     var out=[head.map(csvCell).join(",")];
     asc.forEach(function(r,i){
-      out.push([i+1,r.kode,r.nama,r.status,'="+'+r.wa+'"',r.institusi,r.jurusan,r.tingkat,r.ide,wib(r.created_at)].map(function(v,k){return k===4?v:csvCell(v)}).join(","));
+      out.push([i+1,r.kode,r.nama,r.status,'="+'+r.wa+'"',r.institusi,r.jurusan,r.tingkat,r.ide,LABEL[vs(r)],wib(r.created_at)].map(function(v,k){return k===4?v:csvCell(v)}).join(","));
     });
     var blob=new Blob(["\uFEFF"+out.join("\r\n")],{type:"text/csv;charset=utf-8"});
     var a=document.createElement("a");a.href=URL.createObjectURL(blob);
