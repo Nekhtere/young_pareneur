@@ -212,13 +212,13 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
       var p=h("p");p.appendChild(w);li.appendChild(p);
       var ac=h("div","r4");
       if(s==="menunggu"){
-        ac.appendChild(btn("ok","Setujui",function(){setVerif(r,"disetujui")}));
+        ac.appendChild(btn("ok","Setujui & kirim WA",function(){setujuiKirim(r)}));
         ac.appendChild(btn("no","Tolak",function(){tolak(r)}));
       }else if(s==="disetujui"){
-        ac.appendChild(btn("ok","Kirim WA",function(){kirimWA(r)}));
+        ac.appendChild(btn("ok",r.wa_terkirim_at?"Kirim WA lagi":"Kirim WA",function(){kirimWA(r)}));
         ac.appendChild(btn("ghost","Kembalikan",function(){setVerif(r,"menunggu")}));
       }else{
-        ac.appendChild(btn("ok","Setujui",function(){setVerif(r,"disetujui")}));
+        ac.appendChild(btn("ok","Setujui & kirim WA",function(){setujuiKirim(r)}));
         ac.appendChild(btn("ghost","Kembalikan",function(){setVerif(r,"menunggu")}));
       }
       li.appendChild(ac);
@@ -252,22 +252,46 @@ dialog::backdrop{background:rgba(16,33,63,.6)}
   }
 
   /* ---------- Pesan WhatsApp ---------- */
-  function kirimWA(r){
+  function cfgOk(){
     if(!cfg||!cfg.lokasi_gps||!cfg.link_grup||!cfg.lokasi_nama){
-      toast("Isi dulu lokasi, link GPS, dan link grup.",1);bukaCfg();return;
+      toast("Isi dulu lokasi, link GPS, dan link grup.",1);bukaCfg();return false;
     }
-    sb.rpc("pesan_wa_youngpreneur",{p_id:r.id}).then(function(res){
+    return true;
+  }
+  // Tab dibuka SEKARANG (saat klik) supaya tidak diblokir browser, lalu diarahkan ke WhatsApp setelah pesan siap.
+  function tabWA(){var w=null;try{w=window.open("","_blank")}catch(e){}return w}
+  function siapWA(r,w){
+    return sb.rpc("pesan_wa_youngpreneur",{p_id:r.id}).then(function(res){
       var d=res.data&&res.data[0];
       if(res.error||!d){
+        if(w)try{w.close()}catch(e){}
         var m=res.error?res.error.message:"";
         toast(/BELUM_DISETUJUI/.test(m)?"Peserta belum disetujui.":"Gagal menyiapkan pesan"+(m?": "+m:""),1);return;
       }
       r.wa_terkirim_at=new Date().toISOString();draw();
+      var url="https://wa.me/"+d.wa+"?text="+encodeURIComponent(d.pesan);
+      if(w){
+        try{w.location.href=url;toast("WhatsApp dibuka. Tinggal tekan kirim.");return}catch(e){}
+      }
       $("wT").textContent="Kirim ke "+r.nama;
       $("wP").textContent="+"+d.wa;
       $("wMsg").value=d.pesan;
-      $("wOpen").href="https://wa.me/"+d.wa+"?text="+encodeURIComponent(d.pesan);
+      $("wOpen").href=url;
       $("dWa").showModal();
+    });
+  }
+  function kirimWA(r){
+    if(!cfgOk())return;
+    siapWA(r,tabWA());
+  }
+  function setujuiKirim(r){
+    if(!cfgOk())return;
+    var w=tabWA();
+    sb.rpc("set_verifikasi_youngpreneur",{p_id:r.id,p_status:"disetujui"}).then(function(res){
+      if(res.error){if(w)try{w.close()}catch(e){}toast("Gagal: "+res.error.message,1);return}
+      r.verifikasi="disetujui";r.diverifikasi_at=new Date().toISOString();
+      stats();chips();draw();
+      return siapWA(r,w);
     });
   }
   $("wClose").onclick=function(){$("dWa").close()};

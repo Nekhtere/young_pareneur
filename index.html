@@ -137,9 +137,8 @@ input:focus-visible{outline:none;border-color:var(--ink)}
       <h2 id="dTitle">Terima kasih!</h2>
       <p class="sub">Pendaftaran kamu sudah kami terima dan <b>sedang diverifikasi panitia</b>.</p>
       <dl><div><dt>Peserta</dt><dd id="dNama"></dd></div><div><dt>Asal kampus / sekolah</dt><dd id="dAsal"></dd></div></dl>
-      <div class="code"><span>Kode registrasi</span><b id="dKode"></b></div>
     </div>
-    <div class="tips"><p><b>Langkah selanjutnya</b></p><p>Jika pendaftaranmu disetujui, panitia akan mengirim detail lokasi (titik GPS) dan link grup peserta lewat WhatsApp ke nomor yang kamu daftarkan. Pastikan nomor WhatsApp kamu aktif.</p><p>Simpan kode registrasi di atas sebagai bukti pendaftaran.</p></div>
+    <div class="tips"><p><b>Langkah selanjutnya</b></p><p>Jika pendaftaranmu disetujui, panitia akan mengirim detail lokasi (titik GPS) dan link grup peserta lewat WhatsApp ke nomor yang kamu daftarkan. Pastikan nomor WhatsApp kamu aktif.</p></div>
     <div class="tips" id="panBox" hidden><p><b>Panitia</b> · hubungi bila ada kendala</p><ul class="pn" id="pnList"></ul></div>
   </section>
 </div>
@@ -264,7 +263,6 @@ input:focus-visible{outline:none;border-color:var(--ink)}
       $("dTitle").textContent="Terima kasih, "+nama.split(/\s+/)[0]+"!";
       $("dNama").textContent=nama+" · "+data.status;
       $("dAsal").textContent=data.institusi+" · "+data.jurusan;
-      $("dKode").textContent=kode;
       document.body.classList.add("sent");
       window.scrollTo({top:0,behavior:"smooth"});
     }).catch(function(){gagal("Pendaftaran gagal terkirim. Periksa koneksi internet lalu coba lagi.")});
